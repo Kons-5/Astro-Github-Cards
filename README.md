@@ -2,7 +2,9 @@
 
 The Astro-Github-Card component is a reusable component built with Astro that displays information about a GitHub repository in a visually appealing card format. It fetches repository details using the GitHub API and displays them in a user-friendly manner.
 
-![GitHub Card Preview](link_to_image_preview)
+<p align="center">
+  <img width="65%" height="65%" src="https://github.com/Kons-5/Astro-Github-Cards/blob/main/public/example.png">
+</p>
 
 ## Running the Example
 
