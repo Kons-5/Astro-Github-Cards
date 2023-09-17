@@ -4,6 +4,25 @@ The Astro-Github-Card component is a reusable component built with Astro that di
 
 ![GitHub Card Preview](link_to_image_preview)
 
+## Running the Example
+
+To run the example and see the Astro-Github-Card component in action, follow these steps:
+
+### 1. Install Dependencies
+
+Before you can run the example, make sure you have Node.js and npm (Node Package Manager) installed on your computer.
+Once Node.js and npm are installed, open your terminal or command prompt and navigate to the project directory containing the `package.json` file.
+
+```bash
+npm install
+```
+This command will download and install the required packages, including Axios for making HTTP requests and any other project-specific dependencies.
+After the dependencies are successfully installed, you can start the development server. Run the following command:
+
+```bash
+npm run dev
+```
+This command will start the Astro development server and compile your project. It will also open a local development environment, usually at http://localhost:3000, in your web browser.
 ## Features
 
 - Displays the repository name, description, and primary programming language.
@@ -47,4 +66,3 @@ The component fetches language colors from the following repository using Axios:
 ## Dependencies
 - [Axios](https://axios-http.com/): Used for making HTTP requests to fetch repository language colors.
 - [Font Awesome](https://fontawesome.com/): Used for icons (make sure to include the Font Awesome kit script).
-
