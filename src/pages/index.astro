@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardList from "../components/CardList.astro";
+const pageTitle = "Astro Git Card example";
+---
+
+<Layout pageTitle={pageTitle}>
+  <div class="center-container">
+    <ul role="list" class="link-card-grid">
+      <CardList />
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+</style>

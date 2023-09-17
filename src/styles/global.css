@@ -1,0 +1,145 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto+Mono:wght@500&display=swap");
+
+/* Global styles */
+html {
+    background-color: #212738;
+    color: #fdebf3;
+}
+
+body {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* Headings */
+h1, h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin: 0;
+}
+
+h2 {
+    text-decoration: underline #375a7f;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 6px;
+    font-size: 1.7em;
+    margin-bottom: 0;
+}
+
+/* Paragraphs */
+p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1em;
+    hyphens: auto;
+    line-height: 1.5;
+    text-indent: 0em;
+}
+
+/* Lists */
+li {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1em;
+    hyphens: auto;
+    line-height: 1.5;
+    text-indent: 1em;
+}
+
+/* Gifs */
+.gif {
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 0.8rem;
+}
+
+.title-link, .nav-links {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.3rem;
+}
+
+.title-link a, .nav-links a {
+    color: #fdebf3;
+    text-decoration: none;
+}
+
+.title-link a:hover, .nav-links a:hover, a:focus {
+    text-decoration: underline #375a7f;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+}
+
+.nav-links {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+.nav-links a {
+    margin: 0 10px;
+}
+
+/* Card listing */
+.link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+}
+
+/* Theme Icon */
+html.light {
+    background-color: #fdebf3;
+    color: #1e1e2e;
+}
+
+.light .title-link a {
+    color: #1e1e2e;
+}
+
+.light .nav-links a {
+    color: #1e1e2e;
+}
+
+.light .link-card > a {
+    color: #1e1e2e;
+}
+
+/* Media Query */
+@media only screen and (max-width: 600px) {
+    body {
+        width: 320px;
+    }
+
+    .nav-bar {
+        display: initial;
+    }
+
+    .title-link {
+        text-align: center;
+    }
+
+    .nav-links {
+        text-align: center;
+    }
+
+    .nav-links a {
+        margin: 0 8px;
+    }
+
+    ul, ol, li {
+      text-indent: 0;
+    }
+}

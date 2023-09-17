@@ -1,0 +1,16 @@
+---
+import Card from "./Card.astro";
+
+// Define an array of GitHub repository URLs
+const repoUrls = [
+  "https://github.com/Kons-5/IST-RCI-Notes",
+  "https://github.com/Kons-5/IST-MSim-Notes",
+  "https://github.com/Kons-5/IST-PE-Notes",
+  "https://github.com/Kons-5/IST-PE-Project",
+  //(...)
+];
+---
+
+<ul role="list" class="link-card-grid">
+  {repoUrls.map((url, index) => <Card key={index} url={url} />)}
+</ul>

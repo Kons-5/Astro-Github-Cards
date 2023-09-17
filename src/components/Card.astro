@@ -1,0 +1,174 @@
+---
+interface CardProps {
+  url: string;
+}
+
+import axios from "axios";
+const { url }: CardProps = Astro.props;
+
+// Fetch repository details based on the URL and render the card content
+async function fetchRepoDetails() {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos${new URL(url).pathname}`
+    );
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data for repository: ${url}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+// Fetch repository language based on the URL
+const languageColorsResponse = await axios.get(
+  "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
+);
+
+const repoDetails = await fetchRepoDetails();
+
+const languageColors = languageColorsResponse.data;
+const languageName = repoDetails?.language || "N/A";
+
+const color = languageColors[languageName]
+  ? languageColors[languageName].color
+  : "#0366d6";
+---
+
+<script src="https://kit.fontawesome.com/3ededc33d4.js" crossorigin="anonymous"
+></script>
+
+<div class="github-repo-card">
+  <a class="repo-link" href={url || "#"} target="_blank">
+    <h3>
+      <i class="fa-solid fa-book-bookmark" style="padding-right: 5px;"></i>{
+        repoDetails?.name || "Loading..."
+      }
+    </h3>
+  </a>
+  <p>{repoDetails?.description || "Loading..."}</p>
+  <span class="language-tag">
+    <span class="language-text">
+      <span class="bullet" style={`background-color: ${color};`}></span>
+      {repoDetails?.language || "Loading..."}
+    </span>
+  </span>
+  <div class="meta-info">
+    <span><i class="fa fa-star"></i> {repoDetails?.stargazers_count || 0}</span>
+    <span style="margin-left: 16px;">
+      <i class="fa fa-code-fork"></i>
+      {repoDetails?.forks_count || 0}
+    </span>
+  </div>
+</div>
+
+<style>
+  .github-repo-card {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 0rem;
+    max-width: 300px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    /* card layout */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "title"
+      "description"
+      "info";
+  }
+
+  .github-repo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h3 {
+    color: #0366d6;
+    margin: 0;
+    font-size: 1rem;
+    font-family: "Josefin Sans", sans-serif;
+  }
+
+  p {
+    color: #333;
+    margin: 0;
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+
+    grid-area: description;
+  }
+
+  .language-tag {
+    display: inline-block;
+    align-self: start;
+    grid-area: info;
+    width: auto;
+    height: auto;
+    align-self: end;
+  }
+
+  .bullet {
+    display: inline-flex;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: -4px;
+    margin-top: 0.5rem;
+  }
+
+  .language-text {
+    color: #333;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.95rem;
+
+    width: auto;
+    height: auto;
+  }
+
+  .meta-info {
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.9rem;
+    color: #333;
+    width: auto;
+
+    bottom: 0;
+    align-self: end;
+    grid-area: info;
+  }
+
+  .repo-link {
+    text-decoration: none;
+    color: #0366d6;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+
+    display: block;
+    margin-bottom: 0.5rem;
+    grid-area: title;
+  }
+
+  .repo-link:hover {
+    color: #2056b8;
+  }
+
+  a:visited,
+  a:focus {
+    text-decoration: none;
+  }
+</style>
