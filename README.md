@@ -1,4 +1,4 @@
-# Astro-Github-Card Component
+# Astro-Github-Card Component 🚀
 
 The Astro-Github-Card component is a reusable component built with Astro that displays information about a GitHub repository in a visually appealing card format. It fetches repository details using the GitHub API and displays them in a user-friendly manner.
 
@@ -6,7 +6,7 @@ The Astro-Github-Card component is a reusable component built with Astro that di
   <img width="65%" height="65%" src="https://github.com/Kons-5/Astro-Github-Cards/blob/main/public/example.png">
 </p>
 
-## Running the Example
+## ✅ Running the Example
 
 To run the example and see the Astro-Github-Card component in action, follow these steps:
 
@@ -21,17 +21,20 @@ npm install
 This command will download and install the required packages, including Axios for making HTTP requests and any other project-specific dependencies.
 After the dependencies are successfully installed, you can start the development server. Run the following command:
 
+### 2. Run the code
+
 ```bash
 npm run dev
 ```
 This command will start the Astro development server and compile your project. It will also open a local development environment, usually at http://localhost:3000, in your web browser.
-## Features
+
+## 📝 Features
 
 - Displays the repository name, description, and primary programming language.
 - Shows the number of stars and forks for the repository.
 - Provides a link to the GitHub repository.
 
-## Usage
+## ✏️ Usage
 
 To use the Astro-Github-Card component in your Astro project, follow these steps:
 
@@ -58,14 +61,14 @@ const repoUrls = [
 ```
 5. Start your Astro development server to see the GitHub repository cards in action.
 
-## Customization
+## 🧰 Customization
 You can customize the appearance of the GitHub repository cards by modifying the CSS styles in the Card.astro file. Feel free to adjust colors, fonts, margins, and other styles to match your project's design.
 
-## Laguage Colors
+## 🌈 Laguage Colors
 The component fetches language colors from the following repository using Axios:
 - [ozh/github-colors](https://github.com/ozh/github-colors)
 
-## Dependencies
+## ⚙️ Dependencies
 - [Axios](https://axios-http.com/): Used for making HTTP requests to fetch repository language colors.
 - [Font Awesome](https://fontawesome.com/): Used for icons (make sure to include the Font Awesome kit script).
 
