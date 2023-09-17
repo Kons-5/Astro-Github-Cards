@@ -68,3 +68,7 @@ The component fetches language colors from the following repository using Axios:
 ## Dependencies
 - [Axios](https://axios-http.com/): Used for making HTTP requests to fetch repository language colors.
 - [Font Awesome](https://fontawesome.com/): Used for icons (make sure to include the Font Awesome kit script).
+
+## 📜 License
+
+Licensed under the MIT License, Copyright © 2023
